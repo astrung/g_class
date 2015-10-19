@@ -14,6 +14,11 @@
 <%= link_to "Login",new_user_session_path,method: :get %>
 <%= link_to "Signout",new_user_registration_path,method: :get %>
 <% end %>
+<hr>
+  <% flash.each do |type, message| %>
+				<strong><%= message %></strong>
+  <% end %>
+  <br>
 <%= yield %>
 
 </body>
