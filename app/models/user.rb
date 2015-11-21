@@ -3,9 +3,9 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
-         
   has_many :user_logs
   has_many :goals
+<<<<<<< HEAD
   has_many :active_relationships, class_name:  "Relationship",
                                  foreign_key: "follower_id",
                                   dependent:   :destroy
@@ -29,3 +29,27 @@ class User < ActiveRecord::Base
     following.include?(other_user)
   end
 end
+=======
+  def status_with friend_id
+    if friend = Friend.where(user_id: self.id, friend_id: friend_id).try(:first)
+      if friend.accepted
+        :be_accepted
+      else
+        :requested
+      end
+    elsif friend = Friend.where(user_id: friend_id, friend_id: self.id).try(:first)
+      if friend.accepted
+        :accepted
+      else
+        :be_requested
+      end
+    else
+      :nothing
+    end
+  end
+  
+  def friends
+    Friend.where("user_id = ? or friend_id = ?" , self.id, self.id)
+  end
+end
+>>>>>>> root/master
