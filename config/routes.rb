@@ -6,6 +6,26 @@ Rails.application.routes.draw do
   resources :goals
   resources :user_logs
   root 'static_pages#home'
+  get 'static_pages/transforms2d'
+  get 'static_pages/transforms3d'
+  get 'static_pages/animations'
+  get 'static_pages/backgrounds'
+  get 'static_pages/border_images'
+  get 'static_pages/box_sizing'
+  get 'static_pages/buttons'
+  get 'static_pages/colors'
+  get 'static_pages/filters'
+  get 'static_pages/flexbox'
+  get 'static_pages/fonts'
+  get 'static_pages/gradients'
+  get 'static_pages/media_queries'
+  get 'static_pages/mq_examples'
+  get 'static_pages/multiple_columns'
+  get 'static_pages/rounded_corners'
+  get 'static_pages/shadows'
+  get 'static_pages/text'
+  get 'static_pages/transitions'
+  get 'static_pages/user_interface'
   devise_for :users
   resources :users, only: [:show, :index]
   resources :friends, only: [:create,:destroy,:update]
