@@ -51,3 +51,5 @@ group :development, :test do
 end
 
 gem 'devise'
+gem 'ckeditor_rails'
+gem 'jquery-turbolinks'
